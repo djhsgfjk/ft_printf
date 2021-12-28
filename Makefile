@@ -6,8 +6,7 @@
 #   By: gsheev <gsheev@student.21-school.ru>       +#+  +:+       +#+        #
 #                                                +#+#+#+#+#+   +#+           #
 #   Created: 2021/10/28 16:00:01 by gsheev            #+#    #+#             #
-#   Updated: 2021/10/28 16:00:01 by gsheev           ###   ########.fr       #
-#                                                                            #
+#   Updated: 202#   Updated: 2021/12/29 00:13:32 by gsheev           ###   ########.fr       #                                                              #
 # ************************************************************************** #
 
 SRCS = ft_print_nbr_base.c ft_printf_c.c ft_printf_p.c ft_printf_u.c ft_printf.c ft_printf_i.c ft_printf_s.c ft_printf_x.c 
@@ -36,20 +35,23 @@ all: lib $(NAME)
 
 lib:
 	@cd $(LIB_PATH) && $(MAKE)
-	@cp $(addprefix $(LIB_PATH), $(LIB_NAME)) $(addprefix ./, $(LIB_NAME))
+	@cp $(addprefix $(LIB_PATH), $(LIB_NAME)) $(NAME)
 
-%.o: %.c $(HEADER)
+$(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
+	@test -d $(OBJDIR) || mkdir $(OBJDIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-${NAME}: $(OBJS)
-	@ar rc $(NAME) $?
+${NAME}: $(addprefix ${OBJDIR},${OBJS})
+	@ar rs $(NAME) $?
 
 clean:
-	$(RM) $(OBJS)
+	${RM} $(addprefix $(OBJDIR),$(OBJS))
 
 fclean:	clean
-	$(RM) $(MAKE)
+	$(RM) $(NAME)
+#	@cd $(LIB_PATH) && $(MAKE) fclean
 
 re:	fclean all
 
-# gcc -L. -lftprintf main.c && ./a.out
+compile:
+	gcc main.c -L. -lftprintf && ./a.out

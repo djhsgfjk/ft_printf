@@ -22,7 +22,7 @@ int	ft_printf_c(char c);
 int	ft_printf_s(unsigned char *s);
 int	ft_printf_i(int numb);
 int	ft_printf_u(unsigned int numb);
-int ft_print_nbr_base(unsigned int nbr, unsigned int nb, char *base);
+int ft_print_nbr_base(unsigned long int nbr, unsigned long int nb, char *base);
 int ft_printf_p(unsigned long int p);
 int	ft_printf_x(unsigned int x, int uppercase);
 
