@@ -12,9 +12,9 @@
 
 #include "ft_printf.h"
 
-int ft_print_nbr_base(unsigned long int nbr, unsigned long int nb, char *base)
+int	ft_print_nbr_base(unsigned long int nbr, unsigned long int nb, char *base)
 {
-	int n;
+	int	n;
 
 	n = 0;
 	if (nbr >= nb)

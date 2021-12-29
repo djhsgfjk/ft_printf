@@ -27,6 +27,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
+NORM = norminette
+
 all: ${NAME}
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(HEADER)
@@ -44,3 +46,6 @@ fclean:	clean
 	${RM} ${NAME}
 
 re:	fclean all
+
+norm:
+	@$(NORM) $(addprefix $(SRCDIR),$(SRCS)) $(HEADER)

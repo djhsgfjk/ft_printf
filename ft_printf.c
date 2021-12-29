@@ -56,7 +56,7 @@ int	ft_printf(const char *format, ...)
 		if (n < 0)
 		{
 			count = n;
-			break;
+			break ;
 		}
 		count += n;
 		format++;
@@ -64,4 +64,3 @@ int	ft_printf(const char *format, ...)
 	va_end(argptr);
 	return (count);
 }
-

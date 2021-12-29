@@ -6,7 +6,7 @@
 /*   By: gsheev <gsheev@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 19:31:55 by gsheev            #+#    #+#             */
-/*   Updated: 2021/12/27 23:58:28 by gsheev           ###   ########.fr       */
+/*   Updated: 2021/12/29 14:19:44 by gsheev           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,12 @@
 
 static int	ft_nbrlen(int numb)
 {
-	int d;
-	int count;
+	int	d;
 
-	count = 0;
 	d = 1;
 	while (numb / d >= 10 || numb / d <= -10)
-	{
-		count++;
 		d *= 10;
-	}
-	return (count);
+	return (d);
 }
 
 static int	ft_nbrsign(int numb)
@@ -46,13 +41,12 @@ static int	ft_nbrsign(int numb)
 int	ft_printf_i(int numb)
 {
 	int		sign;
-	int		d;
 	int		n;
+	int		d;
 	int		count;
 	char	c;
 
-	count = ft_nbrlen(numb);
-	d = 10 * count;
+	d = ft_nbrlen(numb);
 	sign = ft_nbrsign(numb);
 	if (sign == 0)
 		return (-1);

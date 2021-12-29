@@ -25,7 +25,7 @@ static void	ft_memmove_backwards(unsigned char *d,
 }
 
 static void	ft_memmove_forwards(unsigned char *d,
-								   const unsigned char *s, size_t n)
+									const unsigned char *s, size_t n)
 {
 	size_t	i;
 
